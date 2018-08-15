@@ -20,7 +20,6 @@ getWebFileList(){
     # 数组下标加1
     index=`expr $index + 1`
     # 显示数字+列表
-    # eg. 1.PAEBankV3_iOSClient
     echo "$index.$file"
   done
 }
