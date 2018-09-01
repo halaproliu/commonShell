@@ -42,25 +42,26 @@ selectProject(){
 
 # 打包文件并移动到packages目录
 pullAndMove(){
+  project=${fileList[selectIndex]}
   #############################选中项目文件打包并拷贝到packages工程目录####################################
   # 进入选中的项目目录
-  cd "$web/${fileList[selectIndex]}"
+  cd "$web/$project"
   # 拉去最新git代码
   git pull
   # 打包离线包
   gulp offline --dev
   # 进入打包完成的prd目录
-  cd "$web/${fileList[selectIndex]}/dist/offline/prd"
+  cd "$web/$project/dist/offline/prd"
   # 对prd目录进行zip压缩
-  zip -r -o "${fileList[selectIndex]}.zip" assets config pages scripts templates
+  zip -r -o "$project.zip" assets config pages scripts templates
   # 进入packages项目目录
   cd $packages
   # 拉去packages最新git代码
   git pull
   # 移动压缩的zip包到packages项目
-  mv "$web/${fileList[selectIndex]}/dist/offline/prd/${fileList[selectIndex]}.zip" "$packages"
+  mv "$web/$project/dist/offline/prd/$project.zip" "$packages"
   # 提示文件移动结束
-  log 6 "The ${fileList[selectIndex]}.zip has been moved to packages project root folder!"
+  log 6 "The $project.zip has been moved to packages project root folder!"
   #####################################################################################################
 }
 
