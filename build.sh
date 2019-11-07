@@ -46,7 +46,7 @@ selectProject(){
 # 列出操作列表
 selectOperation(){
   echo '请选择操作：'
-  operList=('gulp框架编译' '曾义框架编译' 'Fusion框架编译')
+  operList=('xxx' 'xxx' 'xxx')
   operLen=${#operList[*]}
   for((j=0;j<$operLen;j++)){
     let index=$j+1
