@@ -31,7 +31,9 @@ getList(){
 }
 # 选中指定项目
 selectProject(){
-  echo '请选择目录：'
+  log 6 "-------------------"
+  echo '    请选择项目：'
+  log 6 "-------------------"
   read selectedIndex
   if [ $((selectedIndex)) -gt 0 ];
   then
@@ -45,7 +47,9 @@ selectProject(){
 }
 # 列出操作列表
 selectOperation(){
-  echo '请选择操作：'
+  log 6 "-------------------"
+  echo '    请选择操作：'
+  log 6 "-------------------"
   operList=('xxx' 'xxx' 'xxx')
   operLen=${#operList[*]}
   for((j=0;j<$operLen;j++)){
